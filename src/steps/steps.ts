@@ -36,13 +36,14 @@ export async function run(step: Step, context: DeploymentContext) {
           }
 
           if (!deploymentID) {
+            console.log('create deployment', { args });
             const deployment = await github.rest.repos.createDeployment({
               owner: context.owner,
               repo: context.repo,
               ref: args.gitRef,
               required_contexts: [],
               environment: args.environment,
-              description: args.description,
+              description: args.description || 'default description',
               auto_merge: false,
               transient_environment: args.transient,
             });
