@@ -27,8 +27,9 @@ export async function run(step: Step, context: DeploymentContext) {
 
           let deploymentID = getInput("deployment_id");
           console.log(
-            `initializing deployment ${deploymentID} for ${args.environment} @ ${args.gitRef}`
+            `initializing deployment '${deploymentID}' for ${args.environment} @ ${args.gitRef}`
           );
+          console.log(typeof deploymentID);
 
           // mark existing deployments of this environment as inactive
           if (!args.noOverride) {
