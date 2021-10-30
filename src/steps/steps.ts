@@ -47,6 +47,7 @@ export async function run(step: Step, context: DeploymentContext) {
               auto_merge: false,
               transient_environment: args.transient,
             });
+            console.log({ deployment });
             // TODO: why does typecheck fail on `data.id`?
             deploymentID = (deployment.data as any).id.toString();
           }
